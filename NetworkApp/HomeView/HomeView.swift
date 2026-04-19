@@ -45,7 +45,13 @@ struct HomeView: View {
                 NavigationLink {
                     SearchView()
                 } label: {
-                    Text("Search")
+                    Text("Todo")
+                }
+                
+                NavigationLink {
+                    CountryView()
+                } label: {
+                    Text("Country")
                 }
             }
             .listRowBackground(Color.clear)

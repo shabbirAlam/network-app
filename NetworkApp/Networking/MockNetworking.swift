@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockNetworking: Networking, Sendable {
+final class MockNetworking: NetworkService, Sendable {
     private var mockData: Data?
     private var mockError: Error?
     

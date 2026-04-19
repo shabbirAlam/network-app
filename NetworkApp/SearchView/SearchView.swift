@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject var vm = SearchViewModel(networking: NetworkService())
+    @StateObject var vm = SearchViewModel(networking: NetworkServiceImpl())
     
     var body: some View {
         VStack(spacing: 0) {
@@ -53,7 +53,7 @@ struct SearchView: View {
         .task(id: vm.searchedText) {
             await vm.fetchTodos()
         }
-        .navigationTitle("Search")
+        .navigationTitle("Todo")
     }
 }
 
