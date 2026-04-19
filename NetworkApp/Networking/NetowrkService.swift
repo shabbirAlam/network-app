@@ -41,4 +41,23 @@ final class NetworkServiceImpl: NetworkService, Sendable {
         #endif
         return try Self.decoder.decode(T.self, from: data)
     }
+    
+    let url = URL(string: "https://countries.trevorblades.com/")!
+    
+    func fetch<T: Decodable>(
+        query: String,
+        variables: [String: AnyEncodable]? = nil
+    ) async throws -> T {
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = GraphQLRequest(query: query, variables: variables)
+        request.httpBody = try JSONEncoder().encode(body)
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        return try JSONDecoder().decode(GraphQLResponse<T>.self, from: data).data
+    }
 }
