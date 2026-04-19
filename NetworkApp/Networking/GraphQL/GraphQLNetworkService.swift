@@ -11,7 +11,6 @@ protocol GraphQLNetworkService: Sendable {
     func fetch<T: Decodable>(query: String, variables: [String: AnyEncodable]?) async throws -> T
 }
 
-
 final class GraphQLNetworkServiceImpl: GraphQLNetworkService, Sendable {
     
     private let session: URLSession
