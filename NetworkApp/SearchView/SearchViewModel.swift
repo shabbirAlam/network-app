@@ -16,7 +16,7 @@ final class SearchViewModel: ObservableObject {
     
     let service: SearchService
     
-    init(networking: Networking) {
+    init(networking: NetworkService) {
         service = SearchService(networking: networking)
     }
     

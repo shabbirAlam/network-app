@@ -1,5 +1,5 @@
 //
-//  MockNetworking.swift
+//  MockNetworkServiceImpl.swift
 //  NetworkApp
 //
 //  Created by Md Shabbir Alam on 14/03/26.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockNetworking: Networking, Sendable {
+final class MockNetworkServiceImpl: NetworkService, Sendable {
     private var mockData: Data?
     private var mockError: Error?
     
@@ -31,3 +31,4 @@ final class MockNetworking: Networking, Sendable {
         mockError = error
     }
 }
+

@@ -8,9 +8,9 @@
 import Foundation
 
 final class SearchService {
-    private let networking: Networking
+    private let networking: NetworkService
     
-    init(networking: Networking) {
+    init(networking: NetworkService) {
         self.networking = networking
     }
     

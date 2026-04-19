@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject var vm = SearchViewModel(networking: NetworkService())
+    @StateObject var vm = SearchViewModel(networking: NetworkServiceImpl())
     
     var body: some View {
         VStack(spacing: 0) {
@@ -53,12 +53,12 @@ struct SearchView: View {
         .task(id: vm.searchedText) {
             await vm.fetchTodos()
         }
-        .navigationTitle("Search")
+        .navigationTitle("Todo")
     }
 }
 
 #Preview {
-    let mock = MockNetworking()
+    let mock = MockNetworkServiceImpl()
     mock.setData([Todo(userID: 1, id: 1, title: "John", completed: true)])
     return SearchView(vm: SearchViewModel(networking: mock))
 }
